@@ -1,39 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#myModal").modal('show');
-        });
-    </script>
-    <style>
-        .bs-example{
-            margin: 20px;
-        }
-    </style>
-
-    <title>CodeIgniter CRUD</title>
-</head>
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">CODEIGNITER</a>
-        </div>
-    </nav>
-    <br>
-    <br>
+<?php $this->load->view('includes/header');?>
     <div class="container">
-        <!-- Button trigger modal -->
+    <br>
+    <br>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add</button>
-
-        <!-- Modal -->
+        <br>
+        <br>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -46,26 +17,25 @@
                     <div class="modal-body">
                         <form method="post" action="<?php echo site_url('CrudController/create')?>">
                             <div class="form-group">
-                                <label for="inputEmail">Last Name</label>
-                                <input type="text" name="lastName" id="inputEmail" placeholder="Email">
+                                <label for="exampleInputEmail1">Last Name</label>
+                                <input type="text" class="form-control" name="lastName" id="exampleInputEmail1" placeholder="Enter last name">
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail">First Name</label>
-                                <input type="text" name="firstName" id="inputEmail" placeholder="Email">
+                                <label for="exampleInputEmail1">First Name</label>
+                                <input type="text" class="form-control" name="firstName" id="exampleInputEmail1" placeholder="Enter first name">
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail">Birthdate</label>
-                                <input type="date" name="birthdate" id="inputEmail" placeholder="Email">
+                                <label for="exampleInputEmail1">Birthdate</label>
+                                <input type="date" class="form-control" name="birthdate" id="exampleInputEmail1" placeholder="Your birth date">
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail">Contact No</label>
-                                <input type="text" name="contactNo" id="inputEmail" placeholder="Email">
+                                <label for="exampleInputEmail1">Contact No</label>
+                                <input type="text" class="form-control" name="contactNo" id="exampleInputEmail1" placeholder="Enter contact number">
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail">Bio</label>
-                                <input type="text" name="bio" id="inputEmail" placeholder="Email">
+                                <label for="exampleInputEmail1">Bio</label>
+                                <input type="text" class="form-control" name="bio" id="exampleInputEmail1" placeholder="Tell us about yourself">
                             </div>
-                            <button type="submit" class="btn btn-primary" value="save">Sign in</button>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -97,8 +67,31 @@
                     <td><?php echo $row->contactNo; ?></td>
                     <td><?php echo $row->bio; ?></td>
                     <td>
-                        <a href="<?php echo site_url('CrudController/edit'); ?>/<?php echo $row->id; ?>">Edit</a> | 
-                        <a href="<?php echo site_url('CrudController/delete'); ?>/<?php echo $row->id; ?>">Delete</a></td>
+                        <a href="<?php echo site_url('CrudController/edit'); ?>/<?php echo $row->id; ?>"><button type="button" class="btn btn-primary">Edit</button></a> | 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2">Delete</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete <?php echo $row->firstName; ?>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <a href="<?php echo site_url('CrudController/delete'); ?>/<?php echo $row->id; ?>"><button type="button" class="btn btn-danger">Delete</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <?php } ?>
             </tbody>
