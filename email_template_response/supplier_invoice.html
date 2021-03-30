@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+   body a{
+    color:#fff !important;
+   }  
+ </style>
+<title></title>
+</head>
+<body>
+  <table  class="" style="width: 600px;">
+    <tbody>
+        <tr style="text-align: center;">
+    
+        <td  style="text-align: left;" >
+       
+        <span class="receipt"><b>%supplier_name%</b> </span><br>
+        <span class="receipt">%supplier_building_number%</span> <br>  
+        <span class="receipt">%supplier_town%</span><br>  
+        <span class="receipt">%supplier_postcode%</span> <br>         
+        </td>
+    
+        <td  style="text-align: right;" >
+        <span class="receipt"><h1>INVOICE</h1></span>
+        <span class="receipt">Period : %period%</span><br/>
+        <span class="receipt">Total Amount : %total_price%</span>
+        </td>     
+        </tr>
+        <tr><td><br></td></tr>
+        
+    </tbody>
+    </table>
+    <table>
+        <thead>
+            <th>Collection Date</th>
+            <th>Collection type</th>
+            <th>Customer name</th>
+            <th>Customer Email</th>
+            <th>Price</th>
+            <th>VAT</th>
+            <th>Gross Amount</th>
+            <th>State</th>
+        </thead>
+        <tbody>
+            %supplier_invoice_rows%
+        </tbody>
+    </table>
+
+</body>
+</html>
